@@ -42,13 +42,17 @@ tr, td{
   padding:20px;
 }
 
-.katakana,.hiragana,.kunyomi,.onyomi,.arti{
+.katakana,.hiragana,.kunyomi,.onyomi,.arti,.level{
   height: 100px;
   font-size: 35px;
   text-align: center;
   background-color: rgb(173, 255, 185);
   border-radius: 30px;
 
+}
+
+.level{
+  width: 431px;
 }
 
 .center {

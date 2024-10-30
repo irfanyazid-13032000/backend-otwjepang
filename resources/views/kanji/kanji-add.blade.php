@@ -27,7 +27,16 @@
     </tr>
     <tr>
       <td><input type="text" class="kunyomi" name="kunyomi" placeholder="kunyomi" required></td>
-      <td><button type="submit">追加</button></td>
+      <td>
+      <select name="level" id="" class="level">
+        <option value="">Pilih Level Kanji</option>
+        <option value="n5">N5</option>
+        <option value="n4">N4</option>
+        <option value="n3">N3</option>
+        <option value="n2">N2</option>
+        <option value="n1">N1</option>
+      </select>
+    </td>
       <td><input type="text" class="onyomi" name="onyomi" placeholder="onyomi" required></td>
     </tr>
   </table>
@@ -35,7 +44,9 @@
 
 </form>
 
-  
+<div class="center">
+  <button type="submit">追加</button>
+</div>
   
   
 </div>
