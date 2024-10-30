@@ -29,7 +29,7 @@ class KanjiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    return $request;
     }
 
     /**
