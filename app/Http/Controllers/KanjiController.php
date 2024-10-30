@@ -13,7 +13,7 @@ class KanjiController extends Controller
      */
     public function index()
     {
-        return KunciJawaban::all();
+        return KunciJawaban::with(['kanji','hiragana','katakana','kunyomi','onyomi'])->get();
     }
 
     /**
