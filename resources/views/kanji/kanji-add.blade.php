@@ -41,12 +41,12 @@
     </tr>
   </table>
 
+  <div class="center">
+    <button type="submit">追加</button>
+  </div>
 
 </form>
 
-<div class="center">
-  <button type="submit">追加</button>
-</div>
   
   
 </div>

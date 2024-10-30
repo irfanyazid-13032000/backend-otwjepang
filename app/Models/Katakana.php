@@ -9,4 +9,7 @@ class Katakana extends Model
     protected $guarded = ['id'];
 
     protected $table = 'katakana';
+
+    public $timestamps = false;
+
 }

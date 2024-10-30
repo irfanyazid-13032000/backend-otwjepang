@@ -10,5 +10,8 @@ class Kanji extends Model
 
     protected $table = 'kanji';
 
+    public $timestamps = false;
+
+
     
 }

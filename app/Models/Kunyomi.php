@@ -9,4 +9,7 @@ class Kunyomi extends Model
     protected $guarded = ['id'];
 
     protected $table = 'kunyomi';
+
+    public $timestamps = false;
+
 }

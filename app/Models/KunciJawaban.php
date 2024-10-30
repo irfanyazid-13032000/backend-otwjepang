@@ -15,6 +15,9 @@ class KunciJawaban extends Model
 
     protected $table = 'kunci_jawaban';
 
+    public $timestamps = false;
+
+
 
 
     public function kanji()

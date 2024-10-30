@@ -9,4 +9,7 @@ class Onyomi extends Model
     protected $guarded = ['id'];
 
     protected $table = 'onyomi';
+
+    public $timestamps = false;
+
 }

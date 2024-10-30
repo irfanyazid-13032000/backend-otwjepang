@@ -9,4 +9,7 @@ class Hiragana extends Model
     protected $guarded = ['id'];
 
     protected $table = 'hiragana';
+
+    public $timestamps = false;
+
 }
