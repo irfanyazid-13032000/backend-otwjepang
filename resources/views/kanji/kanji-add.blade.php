@@ -21,19 +21,17 @@
 
   <table>
     <tr>
-      <td><input type="text" class="katakana" name="katakana" placeholder="katakana"></td>
-      <td><input type="text" class="hiragana" name="hiragana" placeholder="hiragana"></td>
+      <td><input type="text" class="katakana" name="katakana" placeholder="katakana" required></td>
+      <td><input type="text" class="arti" name="arti" placeholder="arti" required></td>
+      <td><input type="text" class="hiragana" name="hiragana" placeholder="hiragana" required></td>
     </tr>
     <tr>
-      <td><input type="text" class="kunyomi" name="kunyomi" placeholder="kunyomi"></td>
-      <td><input type="text" class="onyomi" name="onyomi" placeholder="onyomi"></td>
+      <td><input type="text" class="kunyomi" name="kunyomi" placeholder="kunyomi" required></td>
+      <td><button type="submit">追加</button></td>
+      <td><input type="text" class="onyomi" name="onyomi" placeholder="onyomi" required></td>
     </tr>
   </table>
 
-
-  <div class="center">
-    <button type="submit">追加</button>
-  </div>
 
 </form>
 
