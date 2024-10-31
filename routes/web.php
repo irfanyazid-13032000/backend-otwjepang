@@ -4,10 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KanjiController;
 
 
-Route::get('kanji/add', function () {
-    return view('kanji.kanji-add');
-});
+Route::get('kanji/add',[KanjiController::class,'create'])->name('kanji.add');
 
-Route::post('kanji/store',[KanjiController::class,'store']);
+Route::post('kanji/store',[KanjiController::class,'store'])->name('kanji.store');
 
 

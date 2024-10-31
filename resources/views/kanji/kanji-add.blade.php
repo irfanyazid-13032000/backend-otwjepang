@@ -37,7 +37,7 @@
         <option value="n1">N1</option>
       </select>
     </td>
-      <td><input type="text" class="onyomi" name="onyomi" placeholder="onyomi" required></td>
+      <td><input type="text" class="onyomi" name="onyomi" placeholder="onyomi" required oninput="this.value = this.value.toUpperCase();"></td>
     </tr>
   </table>
 
@@ -52,4 +52,7 @@
 </div>
   
 </body>
+
+<script>
+</script>
 </html>

@@ -27,7 +27,7 @@ class KanjiController extends Controller
      */
     public function create()
     {
-        //
+        return view('kanji.kanji-add');
     }
 
     /**
@@ -77,7 +77,7 @@ class KanjiController extends Controller
             // Commit transaction jika semua insert berhasil
             DB::commit();
 
-            return response()->json(['message' => 'Data berhasil disimpan'], 201);
+            return redirect()->route('kanji.add');
         } catch (\Exception $e) {
             // Rollback transaction jika terjadi error
             DB::rollBack();
