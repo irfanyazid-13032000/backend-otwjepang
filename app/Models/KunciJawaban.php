@@ -8,6 +8,7 @@ use App\Models\Hiragana;
 use App\Models\Katakana;
 use App\Models\Onyomi;
 use App\Models\Kunyomi;
+use App\Models\Arti;
 
 class KunciJawaban extends Model
 {
@@ -46,6 +47,12 @@ class KunciJawaban extends Model
     public function kunyomi()
     {
         return $this->belongsTo(Kunyomi::class, 'id_kunyomi');
+    }
+
+
+    public function arti()
+    {
+        return $this->belongsTo(Arti::class, 'id_arti');
     }
      
 
