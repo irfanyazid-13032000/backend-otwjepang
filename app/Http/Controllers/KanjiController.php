@@ -28,10 +28,12 @@ class KanjiController extends Controller
                 $q->where('level', $request->level);
             });
         }
+
+        $totalJumlahKanji = $query->count();
     
         $kunciJawaban = $query->paginate(10)->appends($request->except('page'));
     
-        return view('kanji.kanji-index', compact('kunciJawaban'));
+        return view('kanji.kanji-index', compact('kunciJawaban','totalJumlahKanji'));
     }
 
     /**

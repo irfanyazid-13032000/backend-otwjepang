@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1><a href="{{route('kanji.add')}}">Daftar Kanji</a> &nbsp;&nbsp;&nbsp;<span id="toggleLevel"></span> </h1>
+<h1> <span>{{ $totalJumlahKanji }}</span> &nbsp;&nbsp;&nbsp;<a href="{{route('kanji.add')}}">Daftar Kanji</a> &nbsp;&nbsp;&nbsp;<span id="toggleLevel"></span> </h1>
 
 <div class="center">
   <div class="huruf">
