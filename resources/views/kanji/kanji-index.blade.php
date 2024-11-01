@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1><a href="{{route('kanji.add')}}">Daftar Kanji</a></h1>
+<h1><a href="{{route('kanji.add')}}">Daftar Kanji</a> &nbsp;&nbsp;&nbsp;<span id="toggleLevel"></span> </h1>
 
 <div class="center">
   <div class="huruf">
@@ -35,4 +35,69 @@
     {{ $kunciJawaban->links('pagination::custom') }}
   </div>
 </body>
+
+
+
+<script>
+    document.getElementById('toggleLevel').addEventListener('click', function () {
+        // Ambil URL saat ini
+        const url = new URL(window.location.href);
+        const searchParams = url.searchParams;
+
+        // Tentukan level saat ini dan level berikutnya
+        const levels = ['n5', 'n4', 'n3', 'n2', 'n1'];
+        let currentLevel = searchParams.get('level');
+        let nextLevel;
+
+        if (!currentLevel) {
+            // Jika tidak ada parameter level, mulai dari 'n5'
+            nextLevel = 'n5';
+        } else {
+            // Cari index level saat ini dan tentukan level berikutnya
+            const currentIndex = levels.indexOf(currentLevel);
+            nextLevel = currentIndex < levels.length - 1 ? levels[currentIndex + 1] : null;
+        }
+
+        // Update parameter level di URL dan ganti teks span
+        if (nextLevel) {
+            searchParams.set('level', nextLevel);
+            document.getElementById('toggleLevel').textContent = nextLevel.toUpperCase(); // Set teks ke level berikutnya
+        } else {
+            searchParams.delete('level');
+            document.getElementById('toggleLevel').textContent = '全部'; // Reset teks ke '全部' jika tidak ada level
+        }
+
+        // Set URL baru dan redirect
+        url.search = searchParams.toString();
+        window.location.href = url.toString();
+    });
+
+
+    function updateLevelDiSpan(){
+      const url = new URL(window.location.href);
+        const searchParams = url.searchParams;
+        const level = searchParams.get('level');
+
+        const levels = {
+            'n5': 'N5',
+            'n4': 'N4',
+            'n3': 'N3',
+            'n2': 'N2',
+            'n1': 'N1'
+        };
+
+        // Jika level ada di URL, ganti teks span dengan level yang sesuai
+        if (level && levels[level]) {
+            document.getElementById('toggleLevel').textContent = levels[level];
+        } else {
+            document.getElementById('toggleLevel').textContent = '全部'; // Reset ke '全部' jika tidak ada level
+        }
+    
+    }
+
+    updateLevelDiSpan()
+
+</script>
+
+
 </html>

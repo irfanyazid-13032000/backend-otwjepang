@@ -18,12 +18,20 @@ class KanjiController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $kunciJawaban = KunciJawaban::with(['kanji','hiragana','katakana','kunyomi','onyomi'])->paginate(10);
+        $query = KunciJawaban::with(['kanji', 'hiragana', 'katakana', 'kunyomi', 'onyomi']);
 
-
-        return view('kanji.kanji-index',compact('kunciJawaban'));
+        // Jika terdapat parameter pencarian berdasarkan level N5
+        if ($request->has('level')) {
+            $query->whereHas('kanji', function ($q) use ($request) {
+                $q->where('level', $request->level);
+            });
+        }
+    
+        $kunciJawaban = $query->paginate(10)->appends($request->except('page'));
+    
+        return view('kanji.kanji-index', compact('kunciJawaban'));
     }
 
     /**
