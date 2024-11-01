@@ -27,9 +27,11 @@
         </div>
       </div>
       @endforeach
-    </table>
+    </div>
   </div>
-</div>
   
+  <div class="pagination">
+    {{ $kunciJawaban->links('pagination::custom') }}
+  </div>
 </body>
 </html>

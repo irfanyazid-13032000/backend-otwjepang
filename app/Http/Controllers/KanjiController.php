@@ -19,7 +19,7 @@ class KanjiController extends Controller
      */
     public function index()
     {
-        $kunciJawaban = KunciJawaban::with(['kanji','hiragana','katakana','kunyomi','onyomi'])->get();
+        $kunciJawaban = KunciJawaban::with(['kanji','hiragana','katakana','kunyomi','onyomi'])->paginate(10);
 
 
         return view('kanji.kanji-index',compact('kunciJawaban'));

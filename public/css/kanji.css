@@ -12,14 +12,12 @@ h1{
 }
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  text-align: center;
+  
 }
 
 .huruf{
-  width: 90%;
-  border: 1px solid #ddd;
   padding: 10px;
   display: flex; /* Menggunakan Flexbox */
   justify-content: center; /* Memusatkan kartu di horizontal */
@@ -29,7 +27,6 @@ h1{
 
 .card{
     display: inline-block;
-    
     width: 200px;
     height: 450px;
     background-color: #f3f3f3;
@@ -49,4 +46,9 @@ h1{
 .kanji{
   color:rgb(12, 48, 48);
   font-size:60px;
+}
+
+.pagination{
+  display: flex; /* Menggunakan Flexbox */
+  justify-content: center; /* Memusatkan kartu di horizontal */
 }
