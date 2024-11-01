@@ -11,7 +11,20 @@
 </head>
 <body>
 
-<h1> <span>{{ $totalJumlahKanji }}</span> &nbsp;&nbsp;&nbsp;<a href="{{route('kanji.add')}}">Daftar Kanji</a> &nbsp;&nbsp;&nbsp;<span id="toggleLevel"></span> </h1>
+<h1> <span>{{ $totalJumlahKanji }}</span>&nbsp;<div class="search"></div>&nbsp;&nbsp;<a href="{{route('kanji.add')}}">Daftar Kanji</a>&nbsp;&nbsp;<div class="search" id="toggleSearch"></div>&nbsp;<span id="toggleLevel"></span></h1>
+
+<div class="find none" id="find">
+  <form action="" method="get">
+    <input type="text" id="teks_pencarian" name="cari_teks">
+    <select name="cari_kategori" id="kategori">
+      <option value="arti">arti</option>
+      <option value="kunyomi">kunyomi</option>
+      <option value="onyomi">onyomi</option>
+    </select>
+    <button type="submit" id="cari">cari</button>
+  </form>
+</div>
+
 
 <div class="center">
   <div class="huruf">
@@ -25,7 +38,7 @@
           <p class="onyomi">onyomi : {{$jawaban->onyomi->teks_onyomi}}</p>
           <p class="kunyomi">kunyomi : {{$jawaban->kunyomi->teks_kunyomi}}</p>
         </div>
-       <button class="edit">edit</button>
+       <button class="edit">変わる</button>
       </div>
       @endforeach
     </div>
@@ -96,6 +109,12 @@
     }
 
     updateLevelDiSpan()
+
+
+
+    document.getElementById('toggleSearch').addEventListener('click',function () {
+      document.getElementById('find').classList.toggle('none');
+    })
 
 </script>
 
