@@ -13,18 +13,20 @@
   display: block;
   padding: 8px 12px;
   text-decoration: none;
-  color: #a7d2ff;
+  color: #021931;
   border: 1px solid #ddd;
   border-radius: 4px;
+  background-color: rgb(2, 137, 210);
+  font-size: 25px;
 }
 
 .pagination li a:hover {
-  background-color: #04070a;
+  background-color: #551d8d;
   color: #fff;
 }
 
 .pagination li.active span {
-  background-color: #617080;
+  background-color: #2f2561;
   color: #fff;
   border: 1px solid #2c343c;
 }
@@ -32,5 +34,4 @@
 .pagination li.disabled span {
   color: #130a04;
   cursor: not-allowed;
-  border-radius:50%;
 }

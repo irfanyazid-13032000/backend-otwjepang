@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1>Insert Sebuah Kanji</h1>
+<h1><a href="{{route('kanji.index')}}">Insert Sebuah Kanji</a></h1>
 
 <div class="input">
   

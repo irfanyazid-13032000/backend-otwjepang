@@ -72,3 +72,8 @@ button{
   border-radius: 30px;
 
 }
+
+a{
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}

@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1>Daftar Kanji</h1>
+<h1><a href="{{route('kanji.add')}}">Daftar Kanji</a></h1>
 
 <div class="center">
   <div class="huruf">
