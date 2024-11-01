@@ -10,6 +10,7 @@ use App\Models\Hiragana;
 use App\Models\Katakana;
 use App\Models\Onyomi;
 use App\Models\Kunyomi;
+use App\Models\Arti;
 
 
 class KanjiController extends Controller
@@ -68,6 +69,11 @@ class KanjiController extends Controller
             $kunyomi->teks_kunyomi = $request->kunyomi;
             $kunyomi->save();
 
+            // Insert ke tabel `arti`
+            $arti = new Arti();
+            $arti->teks_arti = $request->arti;
+            $arti->save();
+
             // Insert ke tabel `kunci_jawaban` dengan ID dari setiap tabel
             $kunciJawaban = new KunciJawaban();
             $kunciJawaban->id_kanji = $kanji->id;
@@ -75,6 +81,7 @@ class KanjiController extends Controller
             $kunciJawaban->id_katakana = $katakana->id;
             $kunciJawaban->id_onyomi = $onyomi->id;
             $kunciJawaban->id_kunyomi = $kunyomi->id;
+            $kunciJawaban->id_arti = $arti->id;
             $kunciJawaban->save();
 
             // Commit transaction jika semua insert berhasil

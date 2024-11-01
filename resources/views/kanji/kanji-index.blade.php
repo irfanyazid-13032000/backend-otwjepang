@@ -25,6 +25,7 @@
           <p class="onyomi">onyomi : {{$jawaban->onyomi->teks_onyomi}}</p>
           <p class="kunyomi">kunyomi : {{$jawaban->kunyomi->teks_kunyomi}}</p>
         </div>
+       <button class="edit">edit</button>
       </div>
       @endforeach
     </div>
