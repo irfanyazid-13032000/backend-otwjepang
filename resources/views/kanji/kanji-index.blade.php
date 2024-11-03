@@ -38,7 +38,7 @@
           <p class="onyomi">onyomi : {{$jawaban->onyomi->teks_onyomi}}</p>
           <p class="kunyomi">kunyomi : {{$jawaban->kunyomi->teks_kunyomi}}</p>
         </div>
-       <button class="edit">変わる</button>
+       <a href="{{route('kanji.edit',['id'=>$jawaban->id])}}" class="edit">変わる</a>
       </div>
       @endforeach
     </div>

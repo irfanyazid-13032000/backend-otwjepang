@@ -120,7 +120,7 @@ class KanjiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('kanji.kanji-edit');
     }
 
     /**
