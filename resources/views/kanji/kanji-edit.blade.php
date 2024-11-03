@@ -16,28 +16,28 @@
 <div class="input">
   
 <form method="post" action="/kanji/store">
-  <input type="text" class="kanji" name="kanji">
+  <input type="text" class="kanji" name="kanji" value="{{$kunciJawaban->kanji->teks_kanji}}">
   @csrf
 
   <table>
     <tr>
-      <td><input type="text" class="katakana" name="katakana" placeholder="katakana" required></td>
-      <td><input type="text" class="arti" name="arti" placeholder="arti" required></td>
-      <td><input type="text" class="hiragana" name="hiragana" placeholder="hiragana" required></td>
+      <td><input type="text" class="katakana" name="katakana" value="{{$kunciJawaban->katakana->teks_katakana}}" required></td>
+      <td><input type="text" class="arti" name="arti" value="{{$kunciJawaban->arti->teks_arti}}" required></td>
+      <td><input type="text" class="hiragana" name="hiragana" value="{{$kunciJawaban->hiragana->teks_hiragana}}" required></td>
     </tr>
     <tr>
-      <td><input type="text" class="kunyomi" name="kunyomi" placeholder="kunyomi" required></td>
+      <td><input type="text" class="kunyomi" name="kunyomi" value="{{$kunciJawaban->kunyomi->teks_kunyomi}}" required></td>
       <td>
       <select name="level" id="" class="level">
         <option value="">Pilih Level Kanji</option>
-        <option value="n5">N5</option>
-        <option value="n4">N4</option>
-        <option value="n3">N3</option>
-        <option value="n2">N2</option>
-        <option value="n1">N1</option>
+        <option @if ($kunciJawaban->kanji->level == 'n5') selected @endif value="n5">N5</option>
+        <option @if ($kunciJawaban->kanji->level == 'n4') selected @endif value="n4">N4</option>
+        <option @if ($kunciJawaban->kanji->level == 'n3') selected @endif value="n3">N3</option>
+        <option @if ($kunciJawaban->kanji->level == 'n2') selected @endif value="n2">N2</option>
+        <option @if ($kunciJawaban->kanji->level == 'n1') selected @endif value="n1">N1</option>
       </select>
     </td>
-      <td><input type="text" class="onyomi" name="onyomi" placeholder="onyomi" required oninput="this.value = this.value.toUpperCase();"></td>
+      <td><input type="text" class="onyomi" name="onyomi" value="{{$kunciJawaban->onyomi->teks_onyomi}}" required oninput="this.value = this.value.toUpperCase();"></td>
     </tr>
   </table>
 

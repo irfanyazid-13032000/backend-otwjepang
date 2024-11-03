@@ -120,7 +120,9 @@ class KanjiController extends Controller
      */
     public function edit(string $id)
     {
-        return view('kanji.kanji-edit');
+       $kunciJawaban =  KunciJawaban::find($id);
+
+        return view('kanji.kanji-edit',compact('kunciJawaban'));
     }
 
     /**
