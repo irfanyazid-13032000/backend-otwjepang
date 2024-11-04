@@ -129,9 +129,42 @@ class KanjiController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
+{
+    $kunciJawaban = KunciJawaban::find($id);
+
+    // Update data pada tabel yang berelasi, jika ada input untuk masing-masing relasi
+    if ($request->has('kanji')) {
+        $kunciJawaban->kanji->update(['teks_kanji' => $request->kanji]);
     }
+
+    if ($request->has('hiragana')) {
+        $kunciJawaban->hiragana->update(['teks_hiragana' => $request->hiragana]);
+    }
+
+    if ($request->has('katakana')) {
+        $kunciJawaban->katakana->update(['teks_katakana' => $request->katakana]);
+    }
+
+    if ($request->has('onyomi')) {
+        $kunciJawaban->onyomi->update(['teks_onyomi' => $request->onyomi]);
+    }
+
+    if ($request->has('kunyomi')) {
+        $kunciJawaban->kunyomi->update(['teks_kunyomi' => $request->kunyomi]);
+    }
+
+    if ($request->has('arti')) {
+        $kunciJawaban->arti->update(['teks_arti' => $request->arti]);
+    }
+
+
+    if ($request->has('level')) {
+        $kunciJawaban->kanji->update(['level' => $request->level]);
+    }
+
+    return redirect()->route('kanji.index');
+}
+
 
     /**
      * Remove the specified resource from storage.

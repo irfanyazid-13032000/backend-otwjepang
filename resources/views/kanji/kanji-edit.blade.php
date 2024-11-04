@@ -15,18 +15,18 @@
 
 <div class="input">
   
-<form method="post" action="/kanji/store">
+<form method="post" action="{{route('kanji.update',['id'=>$kunciJawaban->id])}}">
   <input type="text" class="kanji" name="kanji" value="{{$kunciJawaban->kanji->teks_kanji}}">
   @csrf
 
   <table>
     <tr>
-      <td><input type="text" class="katakana" name="katakana" value="{{$kunciJawaban->katakana->teks_katakana}}" required></td>
-      <td><input type="text" class="arti" name="arti" value="{{$kunciJawaban->arti->teks_arti}}" required></td>
-      <td><input type="text" class="hiragana" name="hiragana" value="{{$kunciJawaban->hiragana->teks_hiragana}}" required></td>
+      <td><input type="text" class="katakana" name="katakana" placeholder="katakana" value="{{$kunciJawaban->katakana->teks_katakana}}" required></td>
+      <td><input type="text" class="arti" name="arti" placeholder="arti" value="{{$kunciJawaban->arti->teks_arti}}" required></td>
+      <td><input type="text" class="hiragana" name="hiragana" placeholder="hiragana" value="{{$kunciJawaban->hiragana->teks_hiragana}}" required></td>
     </tr>
     <tr>
-      <td><input type="text" class="kunyomi" name="kunyomi" value="{{$kunciJawaban->kunyomi->teks_kunyomi}}" required></td>
+      <td><input type="text" class="kunyomi" name="kunyomi" placeholder="kunyomi" value="{{$kunciJawaban->kunyomi->teks_kunyomi}}" required></td>
       <td>
       <select name="level" id="" class="level">
         <option value="">Pilih Level Kanji</option>
@@ -37,7 +37,7 @@
         <option @if ($kunciJawaban->kanji->level == 'n1') selected @endif value="n1">N1</option>
       </select>
     </td>
-      <td><input type="text" class="onyomi" name="onyomi" value="{{$kunciJawaban->onyomi->teks_onyomi}}" required oninput="this.value = this.value.toUpperCase();"></td>
+      <td><input type="text" class="onyomi" name="onyomi" placeholder="onyomi" value="{{$kunciJawaban->onyomi->teks_onyomi}}" required oninput="this.value = this.value.toUpperCase();"></td>
     </tr>
   </table>
 
