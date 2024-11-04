@@ -20,21 +20,62 @@ class KanjiController extends Controller
      */
     public function index(Request $request)
     {
-        $query = KunciJawaban::with(['kanji', 'hiragana', 'katakana', 'kunyomi', 'onyomi']);
-
+        $query = KunciJawaban::with(['kanji', 'hiragana', 'katakana', 'kunyomi', 'onyomi', 'arti']);
+    
         // Jika terdapat parameter pencarian berdasarkan level N5
         if ($request->has('level')) {
             $query->whereHas('kanji', function ($q) use ($request) {
                 $q->where('level', $request->level);
             });
         }
-
+    
+        // Jika terdapat parameter pencarian berdasarkan kategori dan teks
+        if ($request->has('cari_teks') && $request->has('cari_kategori')) {
+            $cariKategori = $request->cari_kategori;
+            $cariTeks = $request->cari_teks;
+    
+            // Menentukan tabel berelasi mana yang akan difilter berdasarkan kategori
+            switch ($cariKategori) {
+                case 'kanji':
+                    $query->whereHas('kanji', function ($q) use ($cariTeks) {
+                        $q->where('teks_kanji', 'like', '%' . $cariTeks . '%');
+                    });
+                    break;
+                case 'hiragana':
+                    $query->whereHas('hiragana', function ($q) use ($cariTeks) {
+                        $q->where('teks_hiragana', 'like', '%' . $cariTeks . '%');
+                    });
+                    break;
+                case 'katakana':
+                    $query->whereHas('katakana', function ($q) use ($cariTeks) {
+                        $q->where('teks_katakana', 'like', '%' . $cariTeks . '%');
+                    });
+                    break;
+                case 'kunyomi':
+                    $query->whereHas('kunyomi', function ($q) use ($cariTeks) {
+                        $q->where('teks_kunyomi', 'like', '%' . $cariTeks . '%');
+                    });
+                    break;
+                case 'onyomi':
+                    $query->whereHas('onyomi', function ($q) use ($cariTeks) {
+                        $q->where('teks_onyomi', 'like', '%' . $cariTeks . '%');
+                    });
+                    break;
+                case 'arti':
+                    $query->whereHas('arti', function ($q) use ($cariTeks) {
+                        $q->where('teks_arti', 'like', '%' . $cariTeks . '%');
+                    });
+                    break;
+            }
+        }
+    
         $totalJumlahKanji = $query->count();
     
-        $kunciJawaban = $query->paginate(10)->appends($request->except('page'));
+        $kunciJawaban = $query->paginate(20)->appends($request->except('page'));
     
-        return view('kanji.kanji-index', compact('kunciJawaban','totalJumlahKanji'));
+        return view('kanji.kanji-index', compact('kunciJawaban', 'totalJumlahKanji'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

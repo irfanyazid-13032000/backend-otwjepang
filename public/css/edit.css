@@ -70,7 +70,12 @@ button{
   background-color: #fe332e;
   color: rgb(255, 255, 255);
   border-radius: 30px;
+  border: none;
+  cursor: pointer;
+}
 
+input{
+  border: none;
 }
 
 a{

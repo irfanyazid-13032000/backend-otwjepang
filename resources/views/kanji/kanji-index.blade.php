@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<h1> <span>{{ $totalJumlahKanji }}</span>&nbsp;<div class="search"></div>&nbsp;&nbsp;<a href="{{route('kanji.add')}}">Daftar Kanji</a>&nbsp;&nbsp;<div class="search" id="toggleSearch"></div>&nbsp;<span id="toggleLevel"></span></h1>
+<h1> <span>{{ $totalJumlahKanji }}</span>&nbsp;<div class="search" id="clear"></div>&nbsp;&nbsp;<a href="{{route('kanji.add')}}">Daftar Kanji</a>&nbsp;&nbsp;<div class="search" id="toggleSearch"></div>&nbsp;<span id="toggleLevel"></span></h1>
 
 <div class="find none" id="find">
   <form action="" method="get">
@@ -115,6 +115,17 @@
     document.getElementById('toggleSearch').addEventListener('click',function () {
       document.getElementById('find').classList.toggle('none');
     })
+
+    document.getElementById('clear').addEventListener('click', function () {
+    // Hapus semua query string dari URL
+    const url = window.location.protocol + "//" + window.location.host + window.location.pathname;
+    
+    window.location.href = url
+    
+    });
+
+
+    
 
 </script>
 

@@ -28,7 +28,7 @@
     <tr>
       <td><input type="text" class="kunyomi" name="kunyomi" placeholder="kunyomi" required></td>
       <td>
-      <select name="level" id="" class="level">
+      <select name="level" id="" class="level" required>
         <option value="">Pilih Level Kanji</option>
         <option value="n5">N5</option>
         <option value="n4">N4</option>

@@ -42,7 +42,7 @@
   </table>
 
   <div class="center">
-    <button type="submit">追加</button>
+    <button type="submit">変える</button>
   </div>
 
 </form>
