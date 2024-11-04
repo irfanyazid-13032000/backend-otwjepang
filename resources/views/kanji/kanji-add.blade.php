@@ -15,7 +15,7 @@
 
 <div class="input">
   
-<form method="post" action="/kanji/store">
+<form method="post" action="{{route('kanji.store')}}">
   <input type="text" class="kanji" name="kanji">
   @csrf
 
