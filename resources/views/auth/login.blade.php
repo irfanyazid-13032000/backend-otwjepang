@@ -7,15 +7,15 @@
   <link rel="stylesheet" href="../../css/login.css">
 </head>
 <body>
-  <canvas id="sunCanvas" width="700" height="700"></canvas>
+  <canvas id="sunCanvas" width="680" height="680"></canvas>
   <div class="inputan">
     <div class="bulatan"id="bulatan-atas"></div>
     <div class="bulatan" id="bulatan-bawah"></div>
   </div>
   <div class="inputan">
     <div class="relative">
-      <input type="text"  class="username none">
-      <input type="password" class="password none">
+      <input type="text"  class="username hidden">
+      <input type="password" class="password hidden">
     </div>
   </div>
 
@@ -61,14 +61,9 @@
       ctx.closePath();
     }
 
+    canvas.classList.add('rotate-rays');
     // Tambahkan event listener untuk hover
-    canvas.addEventListener('mouseenter', () => {
-      canvas.classList.add('rotate-rays');
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-      canvas.classList.remove('rotate-rays');
-    });
+  
 
 
 
@@ -81,10 +76,16 @@
     // Tambahkan event listener untuk klik pada elemen bulatan
     bulatanAtas.addEventListener('click', function() {
       // Ubah kelas input menjadi "block" jika saat ini kelasnya "none"
-      if (usernameInput.classList.contains('none')) {
-        usernameInput.classList.remove('none');
-        usernameInput.classList.add('block');
+      if (usernameInput.classList.contains('hidden')) {
+        usernameInput.classList.remove('hidden');
       }
+
+      if (passwordInput.classList.contains('hidden')) {
+        passwordInput.style.transform = "translate(-57%, 28%)";
+      }else{
+        passwordInput.style.transform = "translate(-50%, 28%)";
+      }
+
 
       bulatanAtas.classList.add('hidden')
     });
@@ -93,9 +94,14 @@
     // Tambahkan event listener untuk klik pada elemen bulatan
     bulatanBawah.addEventListener('click', function() {
       // Ubah kelas input menjadi "block" jika saat ini kelasnya "none"
-      if (passwordInput.classList.contains('none')) {
-        passwordInput.classList.remove('none');
-        passwordInput.classList.add('block');
+      if (passwordInput.classList.contains('hidden')) {
+        passwordInput.classList.remove('hidden');
+      }
+
+      if (usernameInput.classList.contains('hidden')) {
+        passwordInput.style.transform = "translate(-57%, 28%)";
+      }else{
+        passwordInput.style.transform = "translate(-50%, 28%)";
       }
 
       bulatanBawah.classList.add('hidden')

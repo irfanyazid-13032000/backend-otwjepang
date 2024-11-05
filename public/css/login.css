@@ -59,7 +59,6 @@ body {
   display: inline-block;
   padding: 5px;
   font-size: 16px;
-  border: 1px solid #ccc;
   border-radius: 4px;
   opacity: 0;
   transition: width 0.5s ease, opacity 0.5s ease;
@@ -79,6 +78,7 @@ body {
   width: 370px;
   text-align: center;
   z-index: 1;
+  visibility: visible;
 }
 
 
@@ -95,6 +95,7 @@ body {
   z-index: 2;
   color:white;
   text-align: center;
+  visibility: visible;
 }
 
 .relative{
