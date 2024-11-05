@@ -1,0 +1,125 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #87CEEB;
+}
+#sunCanvas {
+  border-radius:50%;
+  transition: transform .3s linear;
+}
+/* Tambahkan kelas untuk animasi rotasi */
+#sunCanvas.rotate-rays {
+  animation: rotate 10s linear infinite;
+}
+
+.none{
+  /* opacity: 0.5; */display: none;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.bulatan{
+  width: 53px;
+  height: 53px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+.password{
+  display: block;
+  font-size: 30px;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+  width: 38px;
+  color:white;
+  text-align: center;
+  position: absolute;
+  transform: translate(-50%,28%);
+  background-color: red;
+  display: inline-block;
+  padding: 5px;
+  font-size: 16px;
+  opacity: 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+.username{
+  display: block;
+  width: 38px;
+  display: inline-block;
+  padding: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  opacity: 0;
+  transition: width 0.5s ease, opacity 0.5s ease;
+}
+
+.username.active {
+  opacity: 1;
+  position: absolute;
+  transform: translate(-50%,-127%);
+  background-color: green;
+  font-size: 30px;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+  /* background-color: #0a5370; */
+  color:white;
+  width: 370px;
+  text-align: center;
+  z-index: 1;
+}
+
+
+.password.active {
+  opacity: 1;
+  position: absolute;
+  transform: translate(-50%,28%);
+  background-color: rgb(28, 99, 122);
+  font-size: 30px;
+  border-radius: 30px;
+  padding: 10px;
+  border: none;
+  width: 370px;
+  z-index: 2;
+  color:white;
+  text-align: center;
+}
+
+.relative{
+  position: relative;
+}
+
+.inputan {
+  position: absolute;
+  top: 50%; /* Posisikan di tengah */
+  left: 50%; /* Posisikan di tengah */
+  transform: translate(-50%, -50%); /* Pusatkan secara sempurna */
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+#bulatan-bawah{
+  margin-top: 30px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
