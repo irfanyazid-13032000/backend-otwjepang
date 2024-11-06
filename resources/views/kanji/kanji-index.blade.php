@@ -15,6 +15,8 @@
 
 <div class="find none" id="find">
   <form action="" method="get">
+    <div class="search"></div>
+    &nbsp;&nbsp;
     <input type="text" id="teks_pencarian" name="cari_teks">
     <select name="cari_kategori" id="kategori">
       <option value="arti">arti</option>
@@ -22,6 +24,8 @@
       <option value="onyomi">onyomi</option>
     </select>
     <button type="submit" id="cari">cari</button>
+    &nbsp;&nbsp;&nbsp;
+    <a href="{{route('logout')}}" class="search"></a>
   </form>
 </div>
 

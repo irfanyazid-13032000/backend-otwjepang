@@ -5,17 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gambar Matahari</title>
   <link rel="stylesheet" href="../../css/login.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
   <canvas id="sunCanvas" width="680" height="680"></canvas>
   <div class="inputan">
-    <div class="bulatan"id="bulatan-atas"></div>
-    <div class="bulatan" id="bulatan-bawah"></div>
+      <div class="bulatan"id="bulatan-atas"></div>
+      <div class="bulatan" id="bulatan-bawah"></div>
   </div>
   <div class="inputan">
     <div class="relative">
-      <input type="text"  class="username hidden">
-      <input type="password" class="password hidden">
+    <form action="{{route('login.auth')}}" method="post">
+      @csrf
+      <input type="text"  class="username hidden" id="username" name="email">
+      <input type="password" class="password hidden" id="password" name="password">
+    </form>
     </div>
   </div>
 
@@ -119,6 +125,22 @@
     bulatanBawah.addEventListener('click',function() {
       passwordInput.classList.add('active');
     })
+
+
+      document.getElementById("username").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault(); // Mencegah submit otomatis
+            document.getElementById("password").focus(); // Memindahkan fokus ke password
+        }
+    });
+
+      document.getElementById("password").addEventListener("keypress", function(event) {
+          if (event.key === "Enter") {
+              event.preventDefault(); // Mencegah submit otomatis
+              this.form.submit(); // Submit form secara manual
+          }
+      });
+
 
 
   </script>
