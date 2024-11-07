@@ -214,4 +214,13 @@ class KanjiController extends Controller
     {
         //
     }
+
+
+    public function soal()
+    {
+        $query = KunciJawaban::with(['kanji', 'hiragana', 'katakana', 'kunyomi', 'onyomi', 'arti'])->paginate(10);
+
+        return response()->json($query);
+    }
+    
 }
