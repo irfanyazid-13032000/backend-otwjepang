@@ -63,7 +63,10 @@ class TambahtambahanController extends Controller
             // Jika score baru tidak lebih besar, tidak diupdate
             return response()->json([
                 'success' => true,
-                'message' => 'selamat main game ini lagi!!',
+                'message' => [
+                    'sambutan' => 'Have fun playing this game again!!',
+                    'info_skor' => 'Your Highest Score is'
+                ],
                 'data' => $user
             ], 200); // HTTP 200 OK
         }
@@ -76,7 +79,10 @@ class TambahtambahanController extends Controller
     
         return response()->json([
             'success' => true,
-            'message' => 'selamat datang di game ini, baru pertama kali main ya?',
+            'message' => [
+                'sambutan' => 'Welcome to this game, is this your first time playing?',
+                'info_skor' => 'Your Highest Score is 0'
+            ],
             'data' => $newUser
         ], 201); // HTTP 201 Created
     }
