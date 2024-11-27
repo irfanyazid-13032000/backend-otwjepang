@@ -8,4 +8,8 @@ use App\Http\Controllers\TambahtambahanController;
 
 Route::get('/soal', [KanjiController::class, 'soal']);
 
+Route::get('/perubahan', function(){
+  return 'tes perubahan';
+});
+
 Route::post('/insertemailtambahtambahan', [TambahtambahanController::class, 'store']);
